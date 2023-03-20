@@ -16,14 +16,14 @@ The complete harmonization is can be divided into 3 Step process as follows:
 
 - Install python3 (aliased as python or else you will have to update deploy.sh)
 
-- Install Node which would be needed for installing aws-cdk for python
-    For mac : brew install node
+- Install Node which would be needed for installing aws-cdk for python<br>
+    For mac : brew install node<br>
     For windows : https://nodejs.org/en/download
 
-- Install aws-cdk for python 
+- Install aws-cdk for python<br>
     npm install -g aws-cdk@2.69.0 aws-cdk-lib@2.69.0 
 
-- Install python package constructs
+- Install python package constructs<br>
     python -m pip install constructs==10.1.180
     
 - Update the variables as per your AWS env in **ukbb-harmonization/configs/deploy_config.env**: 
