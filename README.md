@@ -12,17 +12,31 @@ The complete harmonization is can be divided into 3 Step process as follows:
 
 ![](AWS_Architecture.jpg)
 
- Before deploying the infrastructure, please update the variables as per your AWS env in **ukbb-harmonization/configs/deploy_config.env**: ''
- - VpcId
- - SubnetIds
- - AvailabilityZones
- - AwsRegion
- - S3BasketBucketName
- - SubnetsCidr
- - EC2KeyPairName
- - DefaultSG
+### Requirements
 
-Run the following command:
+- Install python3 (aliased as python or else you will have to update deploy.sh)
+
+- Install Node which would be needed for installing aws-cdk for python
+    For mac : brew install node
+    For windows : https://nodejs.org/en/download
+
+- Install aws-cdk for python 
+    npm install -g aws-cdk@2.69.0 aws-cdk-lib@2.69.0 
+
+- Install python package constructs
+    python -m pip install constructs==10.1.180
+    
+- Update the variables as per your AWS env in **ukbb-harmonization/configs/deploy_config.env**: 
+  - VpcId
+  - SubnetIds
+  - AvailabilityZones
+  - AwsRegion
+  - S3BasketBucketName
+  - SubnetsCidr
+  - EC2KeyPairName
+  - DefaultSG
+
+Once the above requirements are fulfilled, run the following command to deploy the infrastructure:
 ```bash
     sh deploy.sh prod
 ```
