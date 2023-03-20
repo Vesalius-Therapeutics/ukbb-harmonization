@@ -38,6 +38,7 @@ The complete harmonization is can be divided into 3 Step process as follows:
 
 Once the above requirements are fulfilled, run the following command to deploy the infrastructure:
 ```bash
+    export AWS_PROFILE="default" # Needed for cdk to identify which AWS profile to use for fetching details.
     sh deploy.sh prod
 ```
 

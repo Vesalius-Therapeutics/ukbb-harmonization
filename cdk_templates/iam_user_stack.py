@@ -1,12 +1,9 @@
 from aws_cdk import (
     Stack,
-    CfnOutput,
-    aws_ec2 as ec2,
     aws_iam as iam,
     aws_secretsmanager as sm
 )
 from constructs import Construct
-from . import get_secret, update_secret, get_ec2_ip_from_stack
 import os
 
 
