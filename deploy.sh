@@ -12,6 +12,7 @@ source configs/deploy_config.env ${EnvironVarLower}
 cdk deploy --app "python app_secrets_rds.py" --all --require-approval never
 cdk deploy --app "python app_user.py" --all --require-approval never
 cdk deploy --app "python app_ec2.py" --all --require-approval never
+cdk deploy --app "python app_glue.py" --all --require-approval never --verbose
 
 echo '{
     "Version": "2012-10-17",

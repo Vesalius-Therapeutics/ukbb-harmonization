@@ -38,7 +38,9 @@ class EC2InstanceStack(Stack):
                                          max_session_duration=Duration.seconds(43100),
                                          managed_policies=[
                                              iam.ManagedPolicy.from_aws_managed_policy_name(
-                                                 "AmazonSSMManagedInstanceCore")
+                                                 "AmazonSSMManagedInstanceCore"),
+                                             iam.ManagedPolicy.from_aws_managed_policy_name(
+                                                 'service-role/AWSGlueServiceRole')
                                          ],
                                          )
 

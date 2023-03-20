@@ -34,6 +34,7 @@ This will perform steps in following order:
     The harmonization process uses aws_s3 package developed by AWS for loading csv files data directly onto RDS tables. For this process to work, it needs 3 keys: Access Key, Secret Access key and Session Token. Hence, we need a user which will assume role of the EC2 instance and get those 3 things generated to be used further.
   - Create EC2 Instance and get the packages installed, UKBB repo downloaded from github as part of bootstrapping (ukbb-harmonization/cdk_templates/user_data.sh).
   - Bootstrapping will also run maven build of the java code and create the jar which is actually main code for conversion/harmonization.
+  - We also create Athena/Glue DB "ukbb_db" (name can be changed from deploy_config.env) and a Glue Crawler which will create Athena tables on top of all the final parquet files.
 
 Now you are all set to run the processes.
 
@@ -111,17 +112,16 @@ Once these are downloaded, push/upload these files to S3 bucket.
     - Once data is loaded in RDS Instance, its time for us to get exports of each table into parquet format.
     - This is done by running : /ukbb-harmonization/clin_db_harmonization/scripts/run_parquet_exports.py . Its part of wrapper itself and will generate corresponding parquet files.
 
-    You can now move these parquet files to s3://<YOUR_S3_BUCKET>s/ukbb/ and rerun Glue crawler: ukbb-clindb-crawler which will update the UKBB database on Athena with new table schemas.
+    - Once parquet files are available, it will trigger the Glue crawler and all tables will be available in Athena.
 
-    This step might take around 9-10 hours.
+    This step might take around 10-12 hours depending upon the number of patients being loaded.
 
 
 ## Cleanup
 
-Confirm if all the RDS tables are loaded and available in parquet format on S3.
-If yes, now you are good to delete all the 3 stacks from CloudFormation UI and just use S3 files as you no longer need RDS instance.
+Confirm if all the RDS tables are loaded and available in parquet format on S3 and corresponding Glue Tables are queryable.
+If yes, now you are good to delete all the 3 stacks from CloudFormation UI (except for Glue Stack) and just use S3 files as you no longer need RDS instance.
 This will save you some costs on RDS and EC2 instances.
-You can create Athena tables on top of it if needed.
 
 ----
 ## Contributors

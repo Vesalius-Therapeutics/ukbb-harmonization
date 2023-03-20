@@ -57,4 +57,7 @@ then
 else
     echo "Completed loading data to RDS. Proceeding with extraction in parquet format."
     python3 run_parquet_exports.py ${S3BasketBucketName} ${AWS_DB_HOSTNAME} ${username} ${password}
+    aws glue start-crawler --name "glue_crawler_ukbb_basket_tables"
+    echo "The AWS Glue crawler glue_crawler_ukbb_basket_tables was executed and the Athena tables should be available in few mins."
+
 fi
