@@ -10,7 +10,7 @@ The complete harmonization is can be divided into 3 Step process as follows:
 
 ## Deployment
 
-![](AWS_Architecture.jpg)
+![](AWS_Architecture.jpeg)
 
 ### Requirements
 
