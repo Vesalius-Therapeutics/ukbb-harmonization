@@ -58,7 +58,8 @@ We follow the steps in below order in order to get the clinical data harmonized.
 
 - Download the .enc and .key files.
 - Deploy the infrastructure that includes : Postgres RDS Instance, EC2 Instance, IAM Roles and IAM User for assuming role.
-- Login to EC2 instance and decrypt and convert the .enc file
+- Login to EC2 instance
+- Decrypt and convert the .enc file
 - Once, csv file is available, run the wrapper which will perform following:
   - Create schema/tables on RDS
   - Split the .csv into chunks of 1000 patients and depending upon the cores on EC2, run processes in parallel.
@@ -82,15 +83,30 @@ Once these are downloaded, push/upload these files to S3 bucket.
 ### Step 1 : Make the data basket file readable/usable or convert it into csv
 
     - Login to EC2 Instance, created as part of deployment.
+        ssh -i <Path_to_pem_key> ec2-user@<Private_IP_Address>
+        This is the same pem key you provided in deploy_config.env in "EC2KeyPairName" variable.
+        You get a message while deploying EC2 stack as well with the command for ssh.
+
     - Go to : /ukbb-harmonization/clin_db_harmonization/java/ukbb/data/ and download the .enc file and key file from S3.
+        Get the S3 Bucket from "S3BasketBucketName" variable from deploy_config.env and run below commands :
+
+        # Create data directoru if not available and copy enc and key file in it.
+        mkdir /ukbb-harmonization/clin_db_harmonization/java/ukbb/data
+        aws s3 cp <S3BasketBucketName>/<Path_to_key> /ukbb-harmonization/clin_db_harmonization/java/ukbb/data/
+        aws s3 cp <S3BasketBucketName>/<Path_to_env> /ukbb-harmonization/clin_db_harmonization/java/ukbb/data/
+
+        Note : This EC2 will only have access to "S3BasketBucketName" , so make sure you copy the key and enc file in that bucket or you explicitly provide access to the other bucket through IAM.
+    
     - Go to : /ukbb-harmonization/clin_db_harmonization/scripts
+
     - Update : download_step_1.sh script with following variables :
       - S3_Path="s3://ukbb-basket-data/" # This is the path where we want to save all files so we dont have to run this process again.
       - WorkDir="/ukbb-harmonization/clin_db_harmonization/java/ukbb/data" # Directory where the key and databasket files are present and will be treated as workdir.
       - Key="k12345r123456.key" # The Key file to decrypt after download from UKBB. Might have to rename with ext .ukbkey instead of .key
       - DataBasketFile="ukb123456.enc" # The .enc file from UKBB Portal.
+
     - Run : nohup sh -x download_step_1.sh &
-    - This will take almost 6-7 hours to complete.
+        This will take almost 6-7 hours to complete.
 
     - It will have created following:
       - The input data file i.e. ukb123456.csv. Around 35 GB in size.
@@ -108,9 +124,12 @@ Once these are downloaded, push/upload these files to S3 bucket.
 ### Step 2: Actual harmonization.
 
     - Go to : /ukbb-harmonization/clin_db_harmonization/scripts
+
     - Run : sh -x wrapper_harmonization.sh /ukbb-harmonization/clin_db_harmonization/java/ukbb/data/ukb123456.csv
+
     - This will first update the data.props file. Important file which drives all variables of the process. 
         It is created from data.props_initial_file by replacing variables derived from deploy_config.env and Secret Manager Keys.
+
     - The Java application (under java/ukbb) is able to take a UK BioBank-formatted CSV file and turn it into a database schema and input data for use in a PostgreSQL-compatible database. 
         The scripts under scripts are responsible for coordinating the parallel loading of a large CSV file into an AWS RDS database instance.
 
@@ -125,6 +144,7 @@ Once these are downloaded, push/upload these files to S3 bucket.
       - common.sh is not meant to be executed directly; it has shell functions that are common across the various scripts listed above.
 
     - Once data is loaded in RDS Instance, its time for us to get exports of each table into parquet format.
+
     - This is done by running : /ukbb-harmonization/clin_db_harmonization/scripts/run_parquet_exports.py . Its part of wrapper itself and will generate corresponding parquet files.
 
     - Once parquet files are available, it will trigger the Glue crawler and all tables will be available in Athena.

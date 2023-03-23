@@ -100,5 +100,5 @@ class EC2InstanceStack(Stack):
 
         # Display Commands
         CfnOutput(self, "EC2 Private IP", value=ec2_host.instance_private_ip)
-        message = 'Give it 5 mins to spin up before you run : ssh -i "%s" ec2-user@%s' % (os.environ.get("EC2KeyPairName"), ec2_host.instance_private_ip)
+        message = 'Give it 5 mins to spin up before you run : ssh -i "%s.pem" ec2-user@%s' % (os.environ.get("EC2KeyPairName"), ec2_host.instance_private_ip)
         CfnOutput(self, id="Message", value=message)
