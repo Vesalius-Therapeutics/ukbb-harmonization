@@ -1,0 +1,408 @@
+## ----------------------------------------------------------------------------
+## List of summary field codes that we can safely ignore.
+##
+## 
+## Note: I started with all of the HESIN codes come from the Excel file: HESDataDic092019.xlsx
+##     however it is not complete.
+##     For a complete list of fields to exclude, I pulled directly 
+##     from tue UKBB showcase at the category level and retrieved the complete
+##     field ID listings associated with each. e.g
+##
+## @created: 2020-Jun-05
+## @modified: 2020-Jun-19
+## @author: Jeffery Painter
+## ----------------------------------------------------------------------------
+##
+##
+## Category 2001 - Summary Administration - Hospital inpatient - Health-related outcomesField ID	Description
+## Field ID  Description
+41232	Administrative and legal statuses
+41211	Destinations on discharge from hospital (polymorphic)
+41248	Destinations on discharge from hospital (recoded)
+41231	Hospital episode type
+41206	Intended management of patient (polymorphic)
+41244	Intended management of patient (recoded)
+41207	Main speciality of consultant (polymorphic)
+41245	Main speciality of consultant (recoded)
+41212	Methods of admission to hospital (polymorphic)
+41249	Methods of admission to hospital (recoded)
+41213	Methods of discharge from hospital (polymorphic)
+41250	Methods of discharge from hospital (recoded)
+41229	PCT responsible for patient data
+41230	PCT where patients GP was registered
+41209	Patient classification on admission (polymorphic)
+41247	Patient classification on admission (recoded)
+41233	Sources of admission to hospital (polymorphic)
+41251	Sources of admission to hospital (recoded)
+41235	Spells in hospital
+41208	Treatment speciality of consultant (polymorphic)
+41246	Treatment speciality of consultant (recoded)
+40022	Inpatient record origin
+41253	Inpatient record format
+##
+## Category 2002 - Summary Diagnoses - Hospital inpatient - Health-related outcomes
+##
+## Note: There are more fields here than in the hesin_diag.txt table
+## the reason being is that the database contains a "level" flag that allows
+## us to determine things like "external cause" LEVEL = 3 rather than having
+## to flatten them out as it was done here... however, after examining this
+## and other fields, I feel confident that all of this data is just a recapitulation of
+## the raw table entries and can safely be ignored. -- Jeff
+##
+## Field ID	Description
+##
+41270	Diagnoses - ICD10
+41280	Date of first in-patient diagnosis - ICD10
+41271	Diagnoses - ICD9
+41281	Date of first in-patient diagnosis - ICD9
+41202	Diagnoses - main ICD10
+41262	Date of first in-patient diagnosis - main ICD10
+41203	Diagnoses - main ICD9
+41263	Date of first in-patient diagnosis - main ICD9
+41204	Diagnoses - secondary ICD10
+41205	Diagnoses - secondary ICD9
+41201	External causes - ICD10
+##
+## Category 2003 - Summary Maternity - Hospital inpatient - Health-related outcomes
+## Field ID  Description
+41284	Baby birth weight
+41278	Birth order
+41276	Number of weeks of gestation
+41268	Date of first antenatal assessment
+41275	Duration of antenatal stay
+41285	Duration of postnatal stay
+41269	Gestation period at first antenatal assessment
+41286	Mother age on date of delivery
+41266	Number of babies delivered from single pregnancy
+41267	Number of previous pregnancies
+41277	Reason for changing delivery place
+41219	Anaesthetics administered during delivery
+41220	Anaesthetics administered post delivery
+41221	Delivery methods
+41222	Delivery onset methods
+41223	Delivery places
+41224	Intended delivery places
+41225	Resuscitation methods
+41226	Sex of baby
+41227	Status of baby at birth
+41228	Statuses of person conducting delivery
+41288	Date of birth of baby
+##
+## Category 2004 - Summary Psychiatric - Hospital inpatient - Health-related outcomes
+## Field ID  Description
+41214	Carer support indicators
+41215	Detention categories
+41279	Detention date
+41218	History of psychiatric care on admission
+41216	Legal statuses
+41217	Mental categories
+##
+## Category 2005 - Summary Operations - Hospital inpatient - Health-related outcomes
+## Field ID  Description
+41272	Operative procedures - OPCS4
+41282	Date of first operative procedure - OPCS4
+41273	Operative procedures - OPCS3
+41283	Date of first operative procedure - OPCS3
+41200	Operative procedures - main OPCS4
+41260	Date of first operative procedure - main OPCS4
+41210	Operative procedures - secondary OPCS4
+41256	Operative procedures - main OPCS3
+41257	Date of first operative procedure - main OPCS3
+41258	Operative procedures - secondary OPCS3
+##
+## Keep Category 2006 as it tells us how many records each patient should have in the HES dataset
+##
+## Field ID	Description
+## 41259	Records in HES inpatient main dataset
+## 41234	Records in HES inpatient diagnoses dataset
+## 41149	Records in HES inpatient operations dataset
+## 41290	Records in HES inpatient critical care dataset
+## 41261	Records in HES inpatient maternity dataset
+## 41264	Records in HES inpatient delivery dataset
+## 41265	Records in HES inpatient birth dataset
+## 41289	Records in HES inpatient psychiatric dataset
+##
+## These were the PILOT questions which only captured data for 3,770 patients
+##
+10004   Medication for pain relief, constipation, heartburn (pilot)
+10005   Medication for smoking cessation, constipation, heartburn, allergies (pilot)
+10006   Mouth/teeth dental problems (pilot)
+10007   Vitamin and mineral supplements (pilot)
+10016   Regular use of hands-free device/speakerphone with mobile phone (pilot)
+10105   Internet user (pilot)
+10114   Willing to be contacted by email (pilot)
+10115   Why stopped smoking (pilot)
+10132   Type of progestan-only oral contraceptive used (pilot)
+10133   Number of columns displayed in round (pilot)
+10134   Number of rows displayed in round (pilot)
+10136   Number of correct matches in round (pilot)
+10137   Number of incorrect matches in round (pilot)
+10138   Time to complete round (pilot)
+10139   Index for card A in round (pilot)
+10140   Index for card B in round (pilot)
+10141   Number of times snap-button pressed (pilot)
+10142   Number of columns displayed (pilot)
+10143   Number of rows displayed (pilot)
+10144   Time taken to complete lights test (pilot)
+10145   Pattern of lights displayed (pilot)
+10146   Pattern of lights as remembered (pilot)
+10147   Duration to first press of snap-button in each round (pilot)
+10241   Touchscreen duration (pilot)
+10609   Words answer array (pilot)
+10610   Word count (pilot)
+10612   Number of words beginning with 'S' (pilot)
+10691   Result ranking (pilot)
+10693   Acceptability of each blow result (pilot)
+10694   Forced vital capacity (FVC) (pilot)
+10695   Forced expiratory volume in 1-second (FEV1) (pilot)
+10696   Peak expiratory flow (PEF) (pilot)
+10697   Data points for blow (pilot)
+10711   Spirometry method (pilot)
+10714   Spirometry device serial number (pilot)
+10717   Number of measurements made (pilot)
+10721   Illness, injury, bereavement, stress in last 2 years (pilot)
+10722   Qualifications (pilot)
+10723   Vitamin supplements (pilot)
+10740   Frequency of friend/family visits (pilot)
+10749   Time using mobile phone in last 3 months (pilot)
+10767   Spread type (pilot)
+10776   Bread type/intake (pilot)
+10793   Hearing difficulty/problems (pilot)
+10818   Reason for reducing amount of alcohol drunk (pilot)
+10827   Ever stopped smoking for 6+ months (pilot)
+10844   Gestational diabetes only (pilot)
+10853   Reason former drinker stopped drinking alcohol (pilot)
+10854   Other dietary supplements (pilot)
+10855   Never eat eggs, dairy, wheat, sugar (pilot)
+10860   Gas or solid-fuel cooking/heating (pilot)
+10877   Average total household income before tax (pilot)
+10886   Difference in mobile phone use compared to one year previously (pilot)
+10895   Light smokers, at least 100 smokes in lifetime (pilot)
+10912   Variation in diet (pilot)
+10953   Duration of walks (pilot)
+10962   Duration of moderate physical activity (pilot)
+10971   Duration of vigorous physical activity (pilot)
+20032   Acceptability of each blow result (text) (pilot)
+21623   Touchscreen cognitive duration (pilot)
+21632   Pilot Spirometry duration
+21633   Measurement/Impedance duration (pilot)
+21723   Touchscreen cognitive authorisation (pilot)
+21732   Pilot Spirometry authorisation
+21733   Measurement/Impedance authorisation (pilot)
+21823   Touchscreen cognitive sign-off timestamp (pilot)
+21832   Pilot Spirometry sign-off timestamp
+21833   Measurement/Impedance sign-off timestamp (pilot)
+##
+## Medications field needs to be re-worked manually
+##
+20003	Treatment/medication code
+20199	Antibiotic codes for last 3 months
+##
+## Medical conditions needs to be re-worked manually
+##
+20001	Cancer code, self-reported
+20002	Non-cancer illness code, self-reported
+20004	Operation code
+## ----------------------------------------------------------------------------
+## Category 122
+## ----------------------------------------------------------------------------
+## Symbol digit substitution - Cognitive function online - Online follow-up
+## These fields just tell us which pattern the user was presented with
+## and what the patient entered
+## measurable outcomes are really limited to how many patterns they attempted,
+## total number correct and time to complete
+##
+## Commented out are variables to keep
+## ----------------------------------------------------------------------------
+# Field ID	Description
+# 20159	Number of symbol digit matches made correctly (single value)
+# 20195	Number of symbol digit matches attempted (single value)
+20196	First code array presented
+20198	Test array presented
+20200	Values wanted
+20229	Values entered
+20230	Duration to entering value
+# 20245	Symbol digit completion status (e.g. completed, abandoned)
+# 20137	When symbol digit substitution test completed (date and time)
+## ----------------------------------------------------------------------------
+## Category 170
+## ----------------------------------------------------------------------------
+## Genomics - Exome sequencing
+##
+## The values held within this field are coded links to files held within 
+## a bulk repository, not the actual data itself.
+## ----------------------------------------------------------------------------
+# Field ID	Description
+23151	Exome OQFE variant call files (VCFs)
+23152	Exome OQFE variant calls indices
+23153	Exome OQFE CRAM files
+23154	Exome OQFE CRAM indices
+23160	Population-level FE variants, PLINK format
+23161	Exome FE variant call files (VCFs)
+23162	Exome FE variant calls indices
+23163	Exome FE CRAM files
+23164	Exome FE CRAM indices
+23176	Exome SPB variant call files (VCFs)
+23177	Exome SPB variant calls indices
+23178	Exome SPB CRAM files
+23179	Exome SPB CRAM indices
+23170	INVALID Population-level SPB variants, PLINK format
+23171	INVALID Exome SPB variant call files (VCFs)
+23172	INVALID Exome SPB variant calls indices
+23173	INVALID Exome SPB CRAM files
+23174	INVALID Exome SPB CRAM indices
+## ----------------------------------------------------------------------------
+## Category 181
+## ----------------------------------------------------------------------------
+## Genomics - BGI WGS Pilot
+##
+## The values held within this field are coded links to files held within 
+## a bulk repository, not the actual data itself.
+## ----------------------------------------------------------------------------
+# Field ID	Description
+23181	BGI WGS CRAM files
+23182	BGI WGS CRAM indices
+## ----------------------------------------------------------------------------
+## Category 100319
+## ----------------------------------------------------------------------------
+## Genomics - Imputation
+##
+## The values held within this field are coded links to files held within 
+## a bulk repository, not the actual data itself.
+## ----------------------------------------------------------------------------
+#Field ID	Description
+22801	Chromosome 1 imputation and haplotype results	
+22802	Chromosome 2 imputation and haplotype results	
+22803	Chromosome 3 imputation and haplotype results	
+22804	Chromosome 4 imputation and haplotype results	
+22805	Chromosome 5 imputation and haplotype results	
+22806	Chromosome 6 imputation and haplotype results	
+22807	Chromosome 7 imputation and haplotype results	
+22808	Chromosome 8 imputation and haplotype results	
+22809	Chromosome 9 imputation and haplotype results	
+22810	Chromosome 10 imputation and haplotype results	
+22811	Chromosome 11 imputation and haplotype results	
+22812	Chromosome 12 imputation and haplotype results	
+22813	Chromosome 13 imputation and haplotype results	
+22814	Chromosome 14 imputation and haplotype results	
+22815	Chromosome 15 imputation and haplotype results	
+22816	Chromosome 16 imputation and haplotype results	
+22817	Chromosome 17 imputation and haplotype results	
+22818	Chromosome 18 imputation and haplotype results	
+22819	Chromosome 19 imputation and haplotype results	
+22820	Chromosome 20 imputation and haplotype results	
+22821	Chromosome 21 imputation and haplotype results	
+22822	Chromosome 22 imputation and haplotype results	
+22823	Chromosome X imputation and haplotype results	
+22800	Chromosome XY imputation and haplotype results
+## ----------------------------------------------------------------------------
+## Category 100315
+## ----------------------------------------------------------------------------
+## Genomics - Genotype Results
+##
+## The values held within this field are coded links to files held within 
+## a bulk repository, not the actual data itself.
+## ----------------------------------------------------------------------------
+#Field ID	Description
+22101	Chromosome 1 genotype results	
+22102	Chromosome 2 genotype results	
+22103	Chromosome 3 genotype results	
+22104	Chromosome 4 genotype results	
+22105	Chromosome 5 genotype results	
+22106	Chromosome 6 genotype results	
+22107	Chromosome 7 genotype results	
+22108	Chromosome 8 genotype results	
+22109	Chromosome 9 genotype results	
+22110	Chromosome 10 genotype results	
+22111	Chromosome 11 genotype results	
+22112	Chromosome 12 genotype results	
+22113	Chromosome 13 genotype results	
+22114	Chromosome 14 genotype results	
+22115	Chromosome 15 genotype results	
+22116	Chromosome 16 genotype results	
+22117	Chromosome 17 genotype results	
+22118	Chromosome 18 genotype results	
+22119	Chromosome 19 genotype results	
+22120	Chromosome 20 genotype results	
+22121	Chromosome 21 genotype results	
+22122	Chromosome 22 genotype results	
+22123	Chromosome X genotype results	
+22124	Chromosome Y genotype results	
+22100	Chromosome XY genotype results	
+22125	Mitochondrial genotype results	
+
+## ----------------------------------------------------------------------------
+## Category 129
+## ----------------------------------------------------------------------------
+## Pilot process completion times
+## ----------------------------------------------------------------------------
+#Field ID	Description
+21833	Measurement/Impedance sign-off timestamp (pilot)
+21823	Touchscreen cognitive sign-off timestamp (pilot)
+
+## ----------------------------------------------------------------------------
+## Category 100005
+## ----------------------------------------------------------------------------
+## Pilot assessment
+##
+## ----------------------------------------------------------------------------
+#Field ID	Description
+10818	Reason for reducing amount of alcohol drunk (pilot)	Alcohol  
+10853	Reason former drinker stopped drinking alcohol (pilot)	Alcohol  
+10776	Bread type/intake (pilot)	Diet  
+10855	Never eat eggs, dairy, wheat, sugar (pilot)	Diet  
+10767	Spread type (pilot)	Diet  
+10912	Variation in diet (pilot)	Diet  
+10722	Qualifications (pilot)	Education  
+10886	Difference in mobile phone use compared to one year previously (pilot)	Electronic device use  
+10105	Internet user (pilot)	Electronic device use  
+10016	Regular use of hands-free device/speakerphone with mobile phone (pilot)	Electronic device use  
+10749	Time using mobile phone in last 3 months (pilot)	Electronic device use  
+10114	Willing to be contacted by email (pilot)	Electronic device use  
+10132	Type of progestan-only oral contraceptive used (pilot)	Female-specific factors  
+10793	Hearing difficulty/problems (pilot)	Hearing  
+10877	Average total household income before tax (pilot)	Household  
+10860	Gas or solid-fuel cooking/heating (pilot)	Household  
+10142	Number of columns displayed (pilot)	Lights pattern memory  
+10143	Number of rows displayed (pilot)	Lights pattern memory  
+10146	Pattern of lights as remembered (pilot)	Lights pattern memory  
+10145	Pattern of lights displayed (pilot)	Lights pattern memory  
+10144	Time taken to complete lights test (pilot)	Lights pattern memory  
+10844	Gestational diabetes only (pilot)	Medical conditions  
+10004	Medication for pain relief, constipation, heartburn (pilot)	Medication  
+10005	Medication for smoking cessation, constipation, heartburn, allergies (pilot)	Medication  
+10854	Other dietary supplements (pilot)	Medication  
+10007	Vitamin and mineral supplements (pilot)	Medication  
+10723	Vitamin supplements (pilot)	Medication  
+10721	Illness, injury, bereavement, stress in last 2 years (pilot)	Mental health  
+10006	Mouth/teeth dental problems (pilot)	Mouth  
+10133	Number of columns displayed in round (pilot)	Pairs matching  
+10136	Number of correct matches in round (pilot)	Pairs matching  
+10137	Number of incorrect matches in round (pilot)	Pairs matching  
+10134	Number of rows displayed in round (pilot)	Pairs matching  
+10138	Time to complete round (pilot)	Pairs matching  
+10962	Duration of moderate physical activity (pilot)	Physical activity  
+10971	Duration of vigorous physical activity (pilot)	Physical activity  
+10953	Duration of walks (pilot)	Physical activity  
+10241	Touchscreen duration (pilot)	Process durations  
+10147	Duration to first press of snap-button in each round (pilot)	Reaction time  
+10139	Index for card A in round (pilot)	Reaction time  
+10140	Index for card B in round (pilot)	Reaction time  
+10141	Number of times snap-button pressed (pilot)	Reaction time  
+10827	Ever stopped smoking for 6+ months (pilot)	Smoking  
+10895	Light smokers, at least 100 smokes in lifetime (pilot)	Smoking  
+10115	Why stopped smoking (pilot)	Smoking  
+10740	Frequency of friend/family visits (pilot)	Social support  
+10693	Acceptability of each blow result (pilot)	Spirometry  
+20032	Acceptability of each blow result (text) (pilot)	Spirometry  
+10697	Data points for blow (pilot)	Spirometry  	†
+10695	Forced expiratory volume in 1-second (FEV1) (pilot)	Spirometry  
+10694	Forced vital capacity (FVC) (pilot)	Spirometry  
+10717	Number of measurements made (pilot)	Spirometry  
+10696	Peak expiratory flow (PEF) (pilot)	Spirometry  
+10691	Result ranking (pilot)	Spirometry  
+10714	Spirometry device serial number (pilot)	Spirometry  
+10711	Spirometry method (pilot)	Spirometry  
+10612	Number of words beginning with 'S' (pilot)	Word production  
+10610	Word count (pilot)	Word production  
+10609	Words answer array (pilot)	Word production

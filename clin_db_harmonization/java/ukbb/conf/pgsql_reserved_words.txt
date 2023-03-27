@@ -1,0 +1,440 @@
+       word        | catcode |                   catdesc
+ abort             | U       | unreserved
+ absolute          | U       | unreserved
+ access            | U       | unreserved
+ action            | U       | unreserved
+ add               | U       | unreserved
+ admin             | U       | unreserved
+ after             | U       | unreserved
+ aggregate         | U       | unreserved
+ all               | R       | reserved
+ also              | U       | unreserved
+ alter             | U       | unreserved
+ always            | U       | unreserved
+ analyse           | R       | reserved
+ analyze           | R       | reserved
+ and               | R       | reserved
+ any               | R       | reserved
+ array             | R       | reserved
+ as                | R       | reserved
+ asc               | R       | reserved
+ assertion         | U       | unreserved
+ assignment        | U       | unreserved
+ asymmetric        | R       | reserved
+ at                | U       | unreserved
+ attach            | U       | unreserved
+ attribute         | U       | unreserved
+ authorization     | T       | reserved (can be function or type name)
+ backward          | U       | unreserved
+ before            | U       | unreserved
+ begin             | U       | unreserved
+ between           | C       | unreserved (cannot be function or type name)
+ bigint            | C       | unreserved (cannot be function or type name)
+ binary            | T       | reserved (can be function or type name)
+ bit               | C       | unreserved (cannot be function or type name)
+ boolean           | C       | unreserved (cannot be function or type name)
+ both              | R       | reserved
+ by                | U       | unreserved
+ cache             | U       | unreserved
+ call              | U       | unreserved
+ called            | U       | unreserved
+ cascade           | U       | unreserved
+ cascaded          | U       | unreserved
+ case              | R       | reserved
+ cast              | R       | reserved
+ catalog           | U       | unreserved
+ chain             | U       | unreserved
+ char              | C       | unreserved (cannot be function or type name)
+ character         | C       | unreserved (cannot be function or type name)
+ characteristics   | U       | unreserved
+ check             | R       | reserved
+ checkpoint        | U       | unreserved
+ class             | U       | unreserved
+ close             | U       | unreserved
+ cluster           | U       | unreserved
+ coalesce          | C       | unreserved (cannot be function or type name)
+ collate           | R       | reserved
+ collation         | T       | reserved (can be function or type name)
+ column            | R       | reserved
+ columns           | U       | unreserved
+ comment           | U       | unreserved
+ comments          | U       | unreserved
+ commit            | U       | unreserved
+ committed         | U       | unreserved
+ concurrently      | T       | reserved (can be function or type name)
+ configuration     | U       | unreserved
+ conflict          | U       | unreserved
+ connection        | U       | unreserved
+ constraint        | R       | reserved
+ constraints       | U       | unreserved
+ content           | U       | unreserved
+ continue          | U       | unreserved
+ conversion        | U       | unreserved
+ copy              | U       | unreserved
+ cost              | U       | unreserved
+ create            | R       | reserved
+ cross             | T       | reserved (can be function or type name)
+ csv               | U       | unreserved
+ cube              | U       | unreserved
+ current           | U       | unreserved
+ current_catalog   | R       | reserved
+ current_date      | R       | reserved
+ current_role      | R       | reserved
+ current_schema    | T       | reserved (can be function or type name)
+ current_time      | R       | reserved
+ current_timestamp | R       | reserved
+ current_user      | R       | reserved
+ cursor            | U       | unreserved
+ cycle             | U       | unreserved
+ data              | U       | unreserved
+ database          | U       | unreserved
+ day               | U       | unreserved
+ deallocate        | U       | unreserved
+ dec               | C       | unreserved (cannot be function or type name)
+ decimal           | C       | unreserved (cannot be function or type name)
+ declare           | U       | unreserved
+ default           | R       | reserved
+ defaults          | U       | unreserved
+ deferrable        | R       | reserved
+ deferred          | U       | unreserved
+ definer           | U       | unreserved
+ delete            | U       | unreserved
+ delimiter         | U       | unreserved
+ delimiters        | U       | unreserved
+ depends           | U       | unreserved
+ desc              | R       | reserved
+ detach            | U       | unreserved
+ dictionary        | U       | unreserved
+ disable           | U       | unreserved
+ discard           | U       | unreserved
+ do                | R       | reserved
+ document          | U       | unreserved
+ domain            | U       | unreserved
+ double            | U       | unreserved
+ drop              | U       | unreserved
+ each              | U       | unreserved
+ else              | R       | reserved
+ enable            | U       | unreserved
+ encoding          | U       | unreserved
+ encrypted         | U       | unreserved
+ end               | R       | reserved
+ enum              | U       | unreserved
+ escape            | U       | unreserved
+ event             | U       | unreserved
+ except            | R       | reserved
+ exclude           | U       | unreserved
+ excluding         | U       | unreserved
+ exclusive         | U       | unreserved
+ execute           | U       | unreserved
+ exists            | C       | unreserved (cannot be function or type name)
+ explain           | U       | unreserved
+ extension         | U       | unreserved
+ external          | U       | unreserved
+ extract           | C       | unreserved (cannot be function or type name)
+ false             | R       | reserved
+ family            | U       | unreserved
+ fetch             | R       | reserved
+ filter            | U       | unreserved
+ first             | U       | unreserved
+ float             | C       | unreserved (cannot be function or type name)
+ following         | U       | unreserved
+ for               | R       | reserved
+ force             | U       | unreserved
+ foreign           | R       | reserved
+ forward           | U       | unreserved
+ freeze            | T       | reserved (can be function or type name)
+ from              | R       | reserved
+ full              | T       | reserved (can be function or type name)
+ function          | U       | unreserved
+ functions         | U       | unreserved
+ generated         | U       | unreserved
+ global            | U       | unreserved
+ grant             | R       | reserved
+ granted           | U       | unreserved
+ greatest          | C       | unreserved (cannot be function or type name)
+ group             | R       | reserved
+ grouping          | C       | unreserved (cannot be function or type name)
+ groups            | U       | unreserved
+ handler           | U       | unreserved
+ having            | R       | reserved
+ header            | U       | unreserved
+ hold              | U       | unreserved
+ hour              | U       | unreserved
+ identity          | U       | unreserved
+ if                | U       | unreserved
+ ilike             | T       | reserved (can be function or type name)
+ immediate         | U       | unreserved
+ immutable         | U       | unreserved
+ implicit          | U       | unreserved
+ import            | U       | unreserved
+ in                | R       | reserved
+ include           | U       | unreserved
+ including         | U       | unreserved
+ increment         | U       | unreserved
+ index             | U       | unreserved
+ indexes           | U       | unreserved
+ inherit           | U       | unreserved
+ inherits          | U       | unreserved
+ initially         | R       | reserved
+ inline            | U       | unreserved
+ inner             | T       | reserved (can be function or type name)
+ inout             | C       | unreserved (cannot be function or type name)
+ input             | U       | unreserved
+ insensitive       | U       | unreserved
+ insert            | U       | unreserved
+ instead           | U       | unreserved
+ int               | C       | unreserved (cannot be function or type name)
+ integer           | C       | unreserved (cannot be function or type name)
+ intersect         | R       | reserved
+ interval          | C       | unreserved (cannot be function or type name)
+ into              | R       | reserved
+ invoker           | U       | unreserved
+ is                | T       | reserved (can be function or type name)
+ isnull            | T       | reserved (can be function or type name)
+ isolation         | U       | unreserved
+ join              | T       | reserved (can be function or type name)
+ key               | U       | unreserved
+ label             | U       | unreserved
+ language          | U       | unreserved
+ large             | U       | unreserved
+ last              | U       | unreserved
+ lateral           | R       | reserved
+ leading           | R       | reserved
+ leakproof         | U       | unreserved
+ least             | C       | unreserved (cannot be function or type name)
+ left              | T       | reserved (can be function or type name)
+ level             | U       | unreserved
+ like              | T       | reserved (can be function or type name)
+ limit             | R       | reserved
+ listen            | U       | unreserved
+ load              | U       | unreserved
+ local             | U       | unreserved
+ localtime         | R       | reserved
+ localtimestamp    | R       | reserved
+ location          | U       | unreserved
+ lock              | U       | unreserved
+ locked            | U       | unreserved
+ logged            | U       | unreserved
+ mapping           | U       | unreserved
+ match             | U       | unreserved
+ materialized      | U       | unreserved
+maxvalue          | U       | unreserved
+ method            | U       | unreserved
+ minute            | U       | unreserved
+ minvalue          | U       | unreserved
+ mode              | U       | unreserved
+ month             | U       | unreserved
+ move              | U       | unreserved
+ name              | U       | unreserved
+ names             | U       | unreserved
+ national          | C       | unreserved (cannot be function or type name)
+ natural           | T       | reserved (can be function or type name)
+ nchar             | C       | unreserved (cannot be function or type name)
+ new               | U       | unreserved
+ next              | U       | unreserved
+ no                | U       | unreserved
+ none              | C       | unreserved (cannot be function or type name)
+ not               | R       | reserved
+ nothing           | U       | unreserved
+ notify            | U       | unreserved
+ notnull           | T       | reserved (can be function or type name)
+ nowait            | U       | unreserved
+ null              | R       | reserved
+ nullif            | C       | unreserved (cannot be function or type name)
+ nulls             | U       | unreserved
+ numeric           | C       | unreserved (cannot be function or type name)
+ object            | U       | unreserved
+ of                | U       | unreserved
+ off               | U       | unreserved
+ offset            | R       | reserved
+ oids              | U       | unreserved
+ old               | U       | unreserved
+ on                | R       | reserved
+ only              | R       | reserved
+ operator          | U       | unreserved
+ option            | U       | unreserved
+ options           | U       | unreserved
+ or                | R       | reserved
+ order             | R       | reserved
+ ordinality        | U       | unreserved
+ others            | U       | unreserved
+ out               | C       | unreserved (cannot be function or type name)
+ outer             | T       | reserved (can be function or type name)
+ over              | U       | unreserved
+ overlaps          | T       | reserved (can be function or type name)
+ overlay           | C       | unreserved (cannot be function or type name)
+ overriding        | U       | unreserved
+ owned             | U       | unreserved
+ owner             | U       | unreserved
+ parallel          | U       | unreserved
+ parser            | U       | unreserved
+ partial           | U       | unreserved
+ partition         | U       | unreserved
+ passing           | U       | unreserved
+ password          | U       | unreserved
+ placing           | R       | reserved
+ plans             | U       | unreserved
+ policy            | U       | unreserved
+ position          | C       | unreserved (cannot be function or type name)
+ preceding         | U       | unreserved
+ precision         | C       | unreserved (cannot be function or type name)
+ prepare           | U       | unreserved
+ prepared          | U       | unreserved
+ preserve          | U       | unreserved
+ primary           | R       | reserved
+ prior             | U       | unreserved
+ privileges        | U       | unreserved
+ procedural        | U       | unreserved
+ procedure         | U       | unreserved
+ procedures        | U       | unreserved
+ program           | U       | unreserved
+ publication       | U       | unreserved
+ quote             | U       | unreserved
+ range             | U       | unreserved
+ read              | U       | unreserved
+ real              | C       | unreserved (cannot be function or type name)
+ reassign          | U       | unreserved
+ recheck           | U       | unreserved
+ recursive         | U       | unreserved
+ ref               | U       | unreserved
+ references        | R       | reserved
+ referencing       | U       | unreserved
+ refresh           | U       | unreserved
+ reindex           | U       | unreserved
+ relative          | U       | unreserved
+ release           | U       | unreserved
+ rename            | U       | unreserved
+ repeatable        | U       | unreserved
+ replace           | U       | unreserved
+ replica           | U       | unreserved
+ reset             | U       | unreserved
+ restart           | U       | unreserved
+ restrict          | U       | unreserved
+ returning         | R       | reserved
+ returns           | U       | unreserved
+ revoke            | U       | unreserved
+ right             | T       | reserved (can be function or type name)
+ role              | U       | unreserved
+ rollback          | U       | unreserved
+ rollup            | U       | unreserved
+ routine           | U       | unreserved
+ routines          | U       | unreserved
+ row               | C       | unreserved (cannot be function or type name)
+ rows              | U       | unreserved
+ rule              | U       | unreserved
+ savepoint         | U       | unreserved
+ schema            | U       | unreserved
+ schemas           | U       | unreserved
+ scroll            | U       | unreserved
+ search            | U       | unreserved
+ second            | U       | unreserved
+ security          | U       | unreserved
+ select            | R       | reserved
+ sequence          | U       | unreserved
+ sequences         | U       | unreserved
+ serializable      | U       | unreserved
+ server            | U       | unreserved
+ session           | U       | unreserved
+ session_user      | R       | reserved
+ set               | U       | unreserved
+ setof             | C       | unreserved (cannot be function or type name)
+ sets              | U       | unreserved
+ share             | U       | unreserved
+ show              | U       | unreserved
+ similar           | T       | reserved (can be function or type name)
+ simple            | U       | unreserved
+ skip              | U       | unreserved
+ smallint          | C       | unreserved (cannot be function or type name)
+ snapshot          | U       | unreserved
+ some              | R       | reserved
+ sql               | U       | unreserved
+ stable            | U       | unreserved
+ standalone        | U       | unreserved
+ start             | U       | unreserved
+ statement         | U       | unreserved
+ statistics        | U       | unreserved
+ stdin             | U       | unreserved
+ stdout            | U       | unreserved
+ storage           | U       | unreserved
+ strict            | U       | unreserved
+ strip             | U       | unreserved
+ subscription      | U       | unreserved
+ substring         | C       | unreserved (cannot be function or type name)
+ symmetric         | R       | reserved
+ sysid             | U       | unreserved
+ system            | U       | unreserved
+ table             | R       | reserved
+ tables            | U       | unreserved
+ tablesample       | T       | reserved (can be function or type name)
+ tablespace        | U       | unreserved
+ temp              | U       | unreserved
+ template          | U       | unreserved
+ temporary         | U       | unreserved
+ text              | U       | unreserved
+ then              | R       | reserved
+ ties              | U       | unreserved
+ time              | C       | unreserved (cannot be function or type name)
+ timestamp         | C       | unreserved (cannot be function or type name)
+ to                | R       | reserved
+ trailing          | R       | reserved
+ transaction       | U       | unreserved
+ transform         | U       | unreserved
+ treat             | C       | unreserved (cannot be function or type name)
+ trigger           | U       | unreserved
+ trim              | C       | unreserved (cannot be function or type name)
+ true              | R       | reserved
+ truncate          | U       | unreserved
+ trusted           | U       | unreserved
+ type              | U       | unreserved
+ types             | U       | unreserved
+ unbounded         | U       | unreserved
+ uncommitted       | U       | unreserved
+ unencrypted       | U       | unreserved
+ union             | R       | reserved
+ unique            | R       | reserved
+ unknown           | U       | unreserved
+ unlisten          | U       | unreserved
+ unlogged          | U       | unreserved
+ until             | U       | unreserved
+ update            | U       | unreserved
+ user              | R       | reserved
+ using             | R       | reserved
+ vacuum            | U       | unreserved
+ valid             | U       | unreserved
+ validate          | U       | unreserved
+ validator         | U       | unreserved
+ value             | U       | unreserved
+ values            | C       | unreserved (cannot be function or type name)
+ varchar           | C       | unreserved (cannot be function or type name)
+ variadic          | R       | reserved
+ varying           | U       | unreserved
+ verbose           | T       | reserved (can be function or type name)
+ version           | U       | unreserved
+ view              | U       | unreserved
+ views             | U       | unreserved
+ volatile          | U       | unreserved
+ when              | R       | reserved
+ where             | R       | reserved
+ whitespace        | U       | unreserved
+ window            | R       | reserved
+ with              | R       | reserved
+ within            | U       | unreserved
+ without           | U       | unreserved
+ work              | U       | unreserved
+ wrapper           | U       | unreserved
+ write             | U       | unreserved
+ xml               | U       | unreserved
+ xmlattributes     | C       | unreserved (cannot be function or type name)
+ xmlconcat         | C       | unreserved (cannot be function or type name)
+ xmlelement        | C       | unreserved (cannot be function or type name)
+ xmlexists         | C       | unreserved (cannot be function or type name)
+ xmlforest         | C       | unreserved (cannot be function or type name)
+ xmlnamespaces     | C       | unreserved (cannot be function or type name)
+ xmlparse          | C       | unreserved (cannot be function or type name)
+ xmlpi             | C       | unreserved (cannot be function or type name)
+ xmlroot           | C       | unreserved (cannot be function or type name)
+ xmlserialize      | C       | unreserved (cannot be function or type name)
+ xmltable          | C       | unreserved (cannot be function or type name)
+ year              | U       | unreserved
+ yes               | U       | unreserved
+ zone              | U       | unreserved
