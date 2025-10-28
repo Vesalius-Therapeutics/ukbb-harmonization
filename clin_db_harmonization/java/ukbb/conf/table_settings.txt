@@ -1,0 +1,115 @@
+###############################################################################
+# Table type definitions
+#
+# If we don't specify a table type here, we presume that it is a standard
+# table in our code.
+#
+###############################################################################
+
+###############################################################################
+# Excluded tables
+###############################################################################
+
+# contents for every field read = "#ukbgene"
+GENOTYPES_GENOTYPE_RESULTS=exclude 
+
+# contents for every field read = "#ukbgene"				
+GENOTYPES_IMPUTATION=exclude
+
+# contents for every field just list the
+# field name itself (e.g. 23161-0.0 has '23161_0_0' as values)
+GENOMICS_EXOME_SEQUENCES=exclude 
+
+# no data in any of these tables
+WHOLE_GENOME_SEQUENCES_BGI_WGS_PILOT=exclude 
+WHOLE_GENOME_SEQUENCES_BROAD_WGS_PILOT=exclude
+
+
+###############################################################################
+# Row repeat tables
+###############################################################################
+COGNITIVE_FUNCTION_ONLINE_PAIRS_MATCHING=row_table
+COGNITIVE_FUNCTION_ONLINE_SYMBOL_DIGIT_SUBSTITUTION=row_table
+EYE_MEASURES_VISUAL_ACUITY=row_table 
+GENOTYPES_INTERIM_GENOTYPE_RELEASE=row_table 
+PROCEDURAL_METRICS_PROCESS_COMPLETION_TIMES=row_table
+VERBAL_INTERVIEW_OPERATIONS=row_table
+
+###############################################################################
+# Column repeat tables
+###############################################################################
+# has 14 columns for ECG automated diagnosis
+# PHYSICAL_MEASURES_ECG_AT_REST_12_LEAD=column_table
+PHYSICAL_MEASURES_ECG_AT_REST_12_LEAD=exclude
+ 
+HEART_MRI_PULSE_WAVE_ANALYSIS=column_table 
+PHYSICAL_MEASURES_HEARING_TEST=column_table
+
+# there are two reads at every instance so just
+# do "read_1, read_2"for the columns that have 2 entries
+PHYSICAL_MEASURES_BLOOD_PRESSURE=column_table
+
+# has trail making time periods between 25 points
+COGNITIVE_FUNCTION_ONLINE_TRAIL_MAKING=column_table
+
+# has 40 cols for genotype info
+GENOTYPES_GENOTYPING_PROCESS_AND_SAMPLE_QC=column_table
+
+###############################################################################
+# Tables with multiple choice questions
+###############################################################################
+MENTAL_HEALTH_MENTAL_DISTRESS=multichoice
+MENTAL_HEALTH_DEPRESSION=multichoice
+MENTAL_HEALTH_MANIA=multichoice
+MENTAL_HEALTH_ANXIETY=multichoice 
+MENTAL_HEALTH_ADDICTIONS=multichoice
+MENTAL_HEALTH_SELF_HARM_BEHAVIOURS=multichoice
+ABDOMINAL_MRI_ABDOMINAL_COMPOSITION=multichoice
+HEALTH_AND_MEDICAL_HISTORY_EYESIGHT=multichoice 
+HEALTH_AND_MEDICAL_HISTORY_MEDICATION=multichoice
+HEALTH_AND_MEDICAL_HISTORY_MEDICAL_CONDITIONS=multichoice
+HEALTH_AND_MEDICAL_HISTORY_MOUTH=multichoice
+HEALTH_AND_MEDICAL_HISTORY_PAIN=multichoice 
+LIFESTYLE_AND_ENVIRONMENT_DIET=multichoice
+LIFESTYLE_AND_ENVIRONMENT_PHYSICAL_ACTIVITY=multichoice
+LIFESTYLE_AND_ENVIRONMENT_SMOKING=multichoice
+PSYCHOSOCIAL_FACTORS_SOCIAL_SUPPORT=multichoice 
+PSYCHOSOCIAL_FACTORS_MENTAL_HEALTH=multichoice
+SOCIODEMOGRAPHICS_EDUCATION=multichoice 
+SOCIODEMOGRAPHICS_EMPLOYMENT=multichoice
+SOCIODEMOGRAPHICS_OTHER_SOCIODEMOGRAPHIC_FACTORS=multichoice 
+SOCIODEMOGRAPHICS_HOUSEHOLD=multichoice
+DIET_BY_24_HOUR_RECALL_TYPICAL_DIET_YESTERDAY=multichoice 
+DIET_BY_24_HOUR_RECALL_BREAD_PASTA_RICE_YESTERDAY=multichoice
+DIET_BY_24_HOUR_RECALL_ALCOHOLIC_BEVERAGES_YESTERDAY=multichoice 
+DIET_BY_24_HOUR_RECALL_CEREAL_YESTERDAY=multichoice
+DIET_BY_24_HOUR_RECALL_MEAL_TYPE_YESTERDAY=multichoice
+DIET_BY_24_HOUR_RECALL_SOUP_SNACKS_PASTRIES_YESTERDAY=multichoice
+DIET_BY_24_HOUR_RECALL_VITAMIN_MINERAL_SUPPLEMENTS_YESTERDAY=multichoice
+
+
+###############################################################################
+# Tables with multiple choice questions to be ignored
+###############################################################################
+HEALTH_RELATED_OUTCOMES_CANCER_REGISTER=ignore_multi
+HEALTH_RELATED_OUTCOMES_DEATH_REGISTER=ignore_multi
+
+POPULATION_CHARACTERISTICS_BASELINE_CHARACTERISTICS=ignore_multi
+#POPULATION_CHARACTERISTICS_BASELINE_CHARACTERISTICS=column_table
+
+# every option here is just replacing a unique key with "Staff unique key"
+# and adds no value, still good to see if individuals
+# may have received treatment bias by seeing 'who' they were  treated by
+PROCEDURAL_METRICS_PROCESS_AUTHORISATION=ignore_multi
+
+VERBAL_INTERVIEW_MEDICATIONS=ignore_multi
+VERBAL_INTERVIEW_MEDICAL_CONDITIONS=ignore_multi
+WORK_ENVIRONMENT_EMPLOYMENT_HISTORY=ignore_multi
+
+###############################################################################
+# Mixed tables still require some work
+###############################################################################
+EYE_MEASURES_AUTOREFRACTION=mixed
+PHYSICAL_MEASURES_ECG_DURING_EXERCISE=mixed
+PHYSICAL_MEASURES_SPIROMETRY=mixed
+TOUCHSCREEN_FAMILY_HISTORY=mixed

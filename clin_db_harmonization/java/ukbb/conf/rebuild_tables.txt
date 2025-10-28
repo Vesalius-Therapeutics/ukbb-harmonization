@@ -1,0 +1,21 @@
+###############################################################################
+# These tables failed the first time, so let's rebuild them
+###############################################################################
+#HEALTH_RELATED_OUTCOMES_CANCER_REGISTER=ignore_multi
+#HEALTH_RELATED_OUTCOMES_DEATH_REGISTER=ignore_multi
+
+#
+# Age and gender are stored here
+#
+#POPULATION_CHARACTERISTICS_BASELINE_CHARACTERISTICS=ignore_multi
+#ALGORITHMICALLY_DEFINED_OUTCOMES_PARKINSONS_DISEASE_OUTCOMES=ignore_multi
+PHYSICAL_MEASURES_HEARING_TEST=ignore_multi
+
+# every option here is just replacing a unique key with "Staff unique key"
+# and adds no value, still good to see if individuals
+# may have received treatment bias by seeing 'who' they were  treated by
+#PROCEDURAL_METRICS_PROCESS_AUTHORISATION=ignore_multi
+
+#VERBAL_INTERVIEW_MEDICATIONS=ignore_multi
+#VERBAL_INTERVIEW_MEDICAL_CONDITIONS=ignore_multi
+#WORK_ENVIRONMENT_EMPLOYMENT_HISTORY=ignore_multi

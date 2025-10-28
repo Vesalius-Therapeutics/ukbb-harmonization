@@ -1,0 +1,8 @@
+#
+# This file contains a list of patients
+# that have revoked consent from UKBB
+#
+# w55647_20221003.csv 
+#
+<patient id 1>
+<patient id 2>
